@@ -20,6 +20,10 @@ model = load_models.load_emotion_classifier()
 img_to_txt = load_models.load_image_to_text()
 client = load_models.load_gpt3()
 
+@app.route('/about.html')
+def about():
+    return render_template('about.html')
+
 @app.route('/')
 def main():
     return render_template('index.html')
