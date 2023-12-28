@@ -44,10 +44,10 @@ def generate_dog_text(client, emotion, context):
 
     gpt_dog = client.chat.completions.create(
         model="gpt-4",  # or another suitable ChatGPT model
-        temperature=1.35,
+        temperature=1.15,
         messages=[
             {"role": "system", "content": final_string},
-            {"role": "user", "content": "In 3 sentences as if you were a dog: express and explain why you would be feeling those emotions in the first person, as if you're experiencing it. Do not say 'as a dog...'"}
+            {"role": "user", "content": "In 2 sentences as if you were a dog: express and explain why you would be feeling those emotions in the first person, as if you're experiencing it. Do not say 'as a dog...'"}
         ]
     )
 
