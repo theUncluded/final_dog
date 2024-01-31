@@ -32,6 +32,10 @@ def main():
 def uploaded_file(filename):
     return send_from_directory('uploads', filename)
 
+@app.route('/', methods =["POST"])
+def creative():
+    return request.files['creative']
+
 @app.route('/predict', methods=['POST'])
 def predict():
     print(request)
@@ -62,7 +66,7 @@ def predict():
         emotion = model_operations.predict_emotion(model, img)
         
         #Generate text explaining context and emotion
-        response_content = model_operations.generate_dog_text(client, emotion, context)
+        response_content = model_operations.generate_dog_text(client, emotion, context,temp)
         
         #Return generated response and path to uploaded image to display
         return jsonify({'prediction': str(response_content), 'filename': filename})

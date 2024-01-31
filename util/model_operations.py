@@ -1,4 +1,5 @@
 from fastai.vision.all import PILImage
+from app.py import *
 
 def preprocess_image(file):
     """
@@ -36,15 +37,12 @@ def dog_precheck(img_to_text_result):
     result = img_to_text_result.lower()
     return result.find('dog') != -1 or result.find('pupp') != -1 
 
-def generate_dog_text(client, emotion, context):
-    """
-    Connects to OpenAI's GPT 3.5 model and generates explanation of why dog is feeling given emotion in given context 
-    """
+def generate_dog_text(client, emotion, context, temp):
     final_string = "You are a dog. If I were to take a picture of you right now you would be {}. Your tone and emotion would be considered {}".format(context, emotion)
 
     gpt_dog = client.chat.completions.create(
-        model="gpt-4",  # or another suitable ChatGPT model
-        temperature=1.15,
+        model="gpt-4",  
+        temperature=creative(),
         messages=[
             {"role": "system", "content": final_string},
             {"role": "user", "content": "In 2 sentences as if you were a dog: express and explain why you would be feeling those emotions in the first person, as if you're experiencing it. Do not say 'as a dog...'"}
