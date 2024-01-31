@@ -1,5 +1,6 @@
 # What-Up-Dog
 
+#CURRENTLY THE MAIN BRANCH IS NOT STABLE, PLEASE REFER TO THE OLD BUILD (branch 'dec23') for working app
 
 What Up Dog utilizes multiple machine learning models to not only predict the emotion your dog is experiencing in a picture you upload, but also will explain why your dog could be feeling that emotion based on factors present in the picture.
 
