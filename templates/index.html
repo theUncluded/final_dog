@@ -17,11 +17,26 @@
       this dire question! 
     </p>
     
+    <!-- <h1>Upload Image</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="button" value="Upload" onclick="uploadImage()">
+    </form>
+    <div id="prediction-result"></div>
+    <img id="uploaded-image" src="" alt="Uploaded Image" style="display:none;"> -->
 
   <div class="border text-card-foreground max-w-xl mx-auto my-12 p-6 bg-white rounded-xl shadow-md space-y-6"
   data-v0-t="card">
   <div class="flex flex-col space-y-1_5 p-6">
     <h1 class="tracking-tight text-2xl font-bold">What Is Your Dog Thinking? &#128054;</h1>
+
+    <h2 class="tracking-tight text-2xl font-bold">NEW!! Set the creativity level of the text-gen! (range= 0-2)</h2>
+    <form action="/temp_set" method="post">
+      <label for="temperature">Temperature:</label>
+      <input type="number" id="temperature" name="temperature" step="0.01" min="0" max="1" value="0.7">
+      <input type="submit" value="Submit">
+    </form>
+  
   
     <p class="sub_head" style="text-sm text-gray-500 dark:text-gray-400">
       Please provide an image of your dog for analysis.
@@ -29,31 +44,34 @@
   </div>
   <div class="p-6">
     <form class="space-y-6" id="upload-form" enctype="multipart/form-data">
-
-
+      <!--
+      <div class="space-y-2">
+        <\!-- Dog Name Input --\>
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="dog-name"
+          >Dog's Name</label
+        ><input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="dog-name"
+          placeholder="e.g., Rover"
+          required=""
+        />
+      </div>
+    -->
      
       <div class="grid w-full max-w-sm items-center gap-1.5">
         <label
           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           for="dog-picture"
-          >Upload Your Favorite Dog Picture</label>
-          <input
+          >Upload Your Favorite Dog Picture</label
+        ><input
           class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           id="dog-picture"
           required=""
           type="file"
           name="file"
         />
-          <form method="post">
-              <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="temp">
-                  Set how creative you want your dog to be! (0 being the least, 2 being the most)
-              </label>
-              <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                     id="creative"
-                     type="text"
-                     name="text" />
-              <button type="submit">Set Creativity!</button>
-          </form>
       </div>
       <button
         class="inline-flex items-center justify-center text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -71,7 +89,7 @@
 
 </div>
 
-<a href="{{url_for('about')}}" style="text-align:center; font-size:large">About Us!</a>
+<a href="/about" style="text-align:center; font-size:large">About Us!</a>
 
 </body>
 </html>

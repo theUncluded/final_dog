@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory, session
 import os
 from werkzeug.utils import secure_filename
 from util import load_models, model_operations
@@ -20,10 +20,6 @@ model = load_models.load_emotion_classifier()
 img_to_txt = load_models.load_image_to_text()
 client = load_models.load_gpt3()
 
-@app.route('/about.html')
-def about():
-    return render_template('about.html')
-
 @app.route('/')
 def main():
     return render_template('index.html')
@@ -31,10 +27,6 @@ def main():
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory('uploads', filename)
-
-@app.route('/', methods =["POST"])
-def creative():
-    return request.files['creative']
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -66,10 +58,23 @@ def predict():
         emotion = model_operations.predict_emotion(model, img)
         
         #Generate text explaining context and emotion
-        response_content = model_operations.generate_dog_text(client, emotion, context,temp)
+        response_content = model_operations.generate_dog_text(client, emotion, context)
         
         #Return generated response and path to uploaded image to display
         return jsonify({'prediction': str(response_content), 'filename': filename})
+
+@app.route('/temp_set', methods=['POST'])
+def temp_set():
+    temp = request.form.get('temperature', type=float)
+    if temp is not None:
+        model_operations.set_temperature(temp)
+    #check to see if user submitted temperature is greater than range
+    if temp >= 2.01:
+        model_operations.set_temperature(2)
+    elif temp <=0:
+        model_operations.set_temperature(0.1)
+        
+    return "Temperature set successfully!"
 
 if __name__ == '__main__':
     app.run(debug=True)
