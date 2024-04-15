@@ -31,8 +31,9 @@ def load_image_to_text():
     The specific model loaded is the vit-gpt2-image-captioning model
     Returns the loaded model
     """
-    img_to_text = pipeline("image-to-text", model="nlpconnect/vit-gpt2-image-captioning")
-    return img_to_text
+    pipe = pipeline("object-detection", model="hustvl/yolos-tiny")
+    return pipe
+
 
 def load_gpt3():
     """
