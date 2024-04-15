@@ -1,7 +1,5 @@
 from fastai.vision.all import PILImage
 
-temperature=1
-
 def preprocess_image(file):
     """
     Preprocess image file into an image format to be used by machine learning models
@@ -31,12 +29,6 @@ def get_context(model, img):
     string_result = string_result[19:]
     return string_result
 
-#global var to receive user submitted temperature
-def set_temperature(temp):
-    global temperature
-    temperature = temp
-    return temperature
-
 def dog_precheck(img_to_text_result):
     """
     Returns true if the given image to text results are about dogs or puppies
@@ -52,11 +44,10 @@ def generate_dog_text(client, emotion, context):
 
     gpt_dog = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        temperature=set_temperature(temperature) ,
-        messages=[
+        temperature = 1.35 ,
+        messages = [
             {"role": "system", "content": final_string},
-            {"role": "user", "content": "Why do you think the dog in the picture is experiencing the emotion we have labeled it with and sent to you?"},
-            {"role": "user", "content": "In 1 sentence as if you were a dog: express this explain why you would be feeling those emotions in the first person, as if you're experiencing it. Do not say 'as a dog...'"}
+            {"role": "user", "content": "In 3 sentences as if you were a dog: express and explain why you would be feeling those emotions in the first person, as if you're experiencing it. Do not say 'as a dog...'"}
         ] 
     )
     # Check if 'choices' exists in the response and it has at least one element
