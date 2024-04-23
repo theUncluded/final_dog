@@ -16,7 +16,7 @@ th, td {
 }
 
 img {
-  max-width: 100%;
+  max-width: 75%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -29,9 +29,8 @@ img {
   background-repeat:no-repeat;
 }*/
 
-.cover_dog {
+img#cover_dog {
   padding-left: 35%;
-  scale: 66%;
 }
 
 .question {
@@ -40,11 +39,11 @@ img {
 }
 
 body {
-  width: 800px;
-  height: 300px;
-  margin-left: 100px;
-  padding-left: 200px;
-  padding-bottom: 50px;
+  width: 66%;
+  height: 66%;
+  margin-left: 10%;
+  padding-left: 10%;
+  padding-bottom: 5%;
 }
 .border {
     border: 1px solid #e5e7eb;
@@ -55,7 +54,7 @@ body {
     padding-left: 35%;
   }
   body {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: sans-serif;
   }
   .text-card-foreground {
     color: #1f2937; /* Adjust color as needed */
@@ -92,10 +91,6 @@ body {
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   
-  .space-y-6 > * + * {
-    margin-top: 1.5rem;
-  }
-  
   /* Styles for the form container */
   .flex {
     display: flex;
@@ -111,7 +106,7 @@ body {
   
   /* Styles for the form elements */
   .tracking-tight {
-    letter-spacing: -0.01562em;
+    letter-spacing: 0em;
   }
 
   #uploaded-image {
@@ -266,3 +261,9 @@ body {
     text-decoration-thickness: 3px;
   }
   
+  #member {
+    width: 360px;
+    height: 360px;
+    border-radius: 3px;
+    border-color: antiquewhite;
+  }
