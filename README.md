@@ -3,10 +3,6 @@
 
 What Up Dog utilizes multiple machine learning models to not only predict the emotion your dog is experiencing in a picture you upload, but also will explain why your dog could be feeling that emotion based on factors present in the picture.
 
-## Screenshots
-
-![App Screenshot](https://cdn.discordapp.com/attachments/1158126522427785276/1184224840446660670/image.png?ex=658b3253&is=6578bd53&hm=a17fa85cfecdefc997f9ee0d4c96a12552aca5e3d37090bb1dbb44f7b0ef4246&)
-
 
 ## Setup
 ###preprequisties
