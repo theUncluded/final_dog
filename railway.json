@@ -1,6 +1,6 @@
 {
-  "$schema": "https://schema.up.railway.app/railway.schema.json",
-  "deploy": {
-    "startCommand": "gunicorn app:app"
+    "$schema": "https://schema.up.railway.app/railway.schema.json",
+    "deploy": {
+      "startCommand": "gunicorn app:app"
+    }
   }
-}
