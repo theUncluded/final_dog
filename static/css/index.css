@@ -4,8 +4,6 @@ table {
   width: 110%; /* Adjust the width of the table as needed */
   border-collapse: collapse;
   margin: 20px auto;
-  
-  
 }
 
 th, td {
@@ -15,25 +13,17 @@ th, td {
   line-height: 1.4;
 }
 
-img {
-  max-width: 75%;
+img#cover_dog {
+  max-width: 45%;
   height: auto;
   display: block;
   margin: 0 auto;
-}
-/*img {
-  background-size: 500px 300px; 
-  width: 800px;
-  height: 450px;
-  padding-left:600px;
-  background-repeat:no-repeat;
-}*/
-
-img#cover_dog {
-  padding-left: 35%;
+  border-width: thick;
+  border-color: darkgreen;
+  border-style:double;
 }
 
-.question {
+p#question {
   font-size: 20px;
   font-family: fantasy;
 }
