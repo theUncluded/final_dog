@@ -43,7 +43,7 @@ def generate_dog_text(client, emotion, context):
     final_string = "You are a dog. If I were to take a picture of you right now you would be {}. Your tone and emotion would be considered {}".format(context, emotion)
 
     gpt_dog = client.chat.completions.create(
-        model="gpt-3.5-turbo-instruct-0914",  # or another suitable ChatGPT model
+        model="gpt-4o-mini",  # or another suitable ChatGPT model
         temperature=1.15,
         messages=[
             {"role": "system", "content": final_string},
